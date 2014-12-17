@@ -1,10 +1,10 @@
 @-webkit-keyframes fade {
   from { opacity: 1; }
-  to { opacity: 0; }
+  to { opacity: 0.2; }
 }
 @keyframes fade {
   from { opacity: 1; }
-  to { opacity: 0; }
+  to { opacity: 0.2; }
 }
 
 @-webkit-keyframes rotate {
@@ -31,35 +31,57 @@
   display: inline-block;
   width: 4em;
   height: 4em;
-  border-radius: 2em;
-  background: linear-gradient(to right, green, yellow);
-  -webkit-animation: rotate 5s linear infinite;
-  animation: rotate 5s linear infinite;
   overflow: hidden;
+  border-radius: 4em;
+  z-index: 0;
+  font-family: monospace;
 }
 
-.spinner.colorwheel::before {
+.spinner.colorwheel::before,
+.spinner.colorwheel::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, red, blue);
-  -webkit-animation: fade 7s infinite alternate, rotate 2.5s linear reverse infinite;
-  animation: fade 7s infinite alternate, rotate 2.5s linear reverse infinite;
+}
+
+.spinner.colorwheel::before {
+  background: linear-gradient(to right, green, yellow);
+  -webkit-animation: rotate 2.5s linear infinite;
+  animation: rotate 2.5s linear infinite;
 }
 
 .spinner.colorwheel::after {
-  content: '';
+  background: linear-gradient(to bottom, red, blue);
+  -webkit-animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
+  animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
+}
+
+.spinner .centerpiece {
   position: absolute;
   top: 0.5em;
   left: 0.5em;
-  right: 0.5em;
-  bottom: 0.5em;
-  border-radius: 2em;
-  background: white;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  text-align: center;
   z-index: 1;
+  color: #333;
+  text-shadow: 0 0.05em 0 white;
+  font-weight: bold;
+  border-radius: 4em;
+  background: rgb(218, 218, 218);
+  cursor: default;
+  box-shadow: 0 -0.1em 0.3em rgba(0, 0, 0, 0.31) inset,
+              0 0.2em 0.3em rgba(255, 255, 255, 1) inset,
+              0 0.1em 0.3em rgba(0, 0, 0, 0.45);
+}
+
+.spinner .centerpiece::after {
+  position: absolute;
+  top
 }
 
 /* WIND CATCHER */
@@ -166,7 +188,7 @@
 .spinner.newton .ball {
   position: relative;
   display: inline-block;
-  width: 2em;
+  width: 1em;
   height: 6em;
   transform-origin: 50% 0%;
 }
@@ -176,8 +198,8 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 2em;
-  height: 2em;
+  width: 1em;
+  height: 1em;
   border-radius: 1em;
   background: radial-gradient(circle at 40% 40%, rgb(79, 77, 77) 39%, rgb(55, 55, 55) 42%);
 }
@@ -185,11 +207,11 @@
 .spinner.newton .ball::before {
   content: '';
   position: absolute;
-  width: 0.08em;
-  margin-left: -0.04em;
+  width: 1px;
+  margin-left: -1px;
   top: 0;
   left: 50%;
-  bottom: 2em;
+  bottom: 1em;
   background: linear-gradient(transparent, gray);
 }
 
