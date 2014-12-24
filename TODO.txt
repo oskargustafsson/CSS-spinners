@@ -2,4 +2,5 @@ Moebius strip
 http://i.imgur.com/5NAuCcd.gif
 http://i.imgur.com/UXUYL2S.gif
 Stacked discs, spinning and changing size
-Three discs, rotated to form a sphere
+
+Make sure all animations are prefixed correctly

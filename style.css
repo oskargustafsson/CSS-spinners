@@ -1,3 +1,5 @@
+/* GENERAL */
+
 @-webkit-keyframes fade {
   from { opacity: 1; }
   to { opacity: 0.2; }
@@ -16,7 +18,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* GENERAL */
 .spinner {
   position: absolute;
   top: 50%;
@@ -24,6 +25,7 @@
   margin-left: -2em;
   margin-top: -2em;
 }
+
 
 /* COLOR WHEEL */
 
@@ -84,6 +86,7 @@
   top
 }
 
+
 /* WIND CATCHER */
 
 @-webkit-keyframes windcatcherSpin {
@@ -132,6 +135,7 @@
 .spinner.windcatcher .blade:nth-child(7) { -webkit-animation-delay: 3s; animation-delay: 3s; }
 .spinner.windcatcher .blade:nth-child(8) { -webkit-animation-delay: 3.5s; animation-delay: 3.5s; }
 
+
 /* SLABS */
 
 @-webkit-keyframes slabMove {
@@ -163,6 +167,7 @@
 .spinner.slabs .slab:nth-child(2) { -webkit-animation-delay: 1s; }
 .spinner.slabs .slab:nth-child(3) { -webkit-animation-delay: 2s; }
 .spinner.slabs .slab:nth-child(4) { -webkit-animation-delay: 3s; }
+
 
 /* NEWTON'S BALLS */
 
@@ -232,6 +237,7 @@
 .spinner.newton .ball:last-child::after {
   -webkit-animation: newtonBallFirst 1s ease-in infinite alternate-reverse;
 }
+
 
 /* CLOCK */
 
@@ -325,4 +331,71 @@
   margin-bottom: -0.25em;
   background: radial-gradient(rgba(0, 0, 0, 0.4), transparent 60%);
   -webkit-animation: clockShadowFade 1.5s linear infinite;
+}
+
+
+/* COLOR SPHERE */
+
+@-webkit-keyframes sphereSpin {
+  0% { transform: rotateX(360deg) rotateY(0deg); }
+  100% { transform: rotateX(0deg) rotateY(360deg); }
+}
+
+@keyframes sphereSpin {
+  0% { transform: rotateX(360deg) rotateY(0deg); }
+  100% { transform: rotateX(0deg) rotateY(360deg); }
+}
+
+.spinner.sphere {
+  width: 4em;
+  height: 4em;
+  transform: perspective(20em) rotateX(-24deg) rotateY(20deg) rotateZ(30deg);
+  transform-style: preserve-3d;
+}
+
+.spinner .inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-animation: sphereSpin 6s linear infinite;
+  animation: sphereSpin 6s linear infinite;
+}
+
+.spinner.sphere .disc {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4em;
+  border: 0.3em dashed black;
+}
+
+@-webkit-keyframes rotateDisc2 {
+  from { transform: rotateX(90deg) rotateZ(0deg); }
+  to { transform: rotateX(90deg) rotateZ(360deg); }
+}
+@keyframes rotateDisc2 {
+  from { transform: rotateX(90deg) rotateZ(0deg); }
+  to { transform: rotateX(90deg) rotateZ(360deg); }
+}
+
+@-webkit-keyframes rotateDisc3 {
+  from { transform: rotateY(90deg) rotateZ(0deg); }
+  to { transform: rotateY(90deg) rotateZ(360deg); }
+}
+@keyframes rotateDisc3 {
+  from { transform: rotateY(90deg) rotateZ(0deg); }
+  to { transform: rotateY(90deg) rotateZ(360deg); }
+}
+
+.spinner.sphere .disc:nth-child(1) {
+  -webkit-animation: rotate 12s linear infinite;
+  animation: rotate 12s linear infinite;
+}
+.spinner.sphere .disc:nth-child(2) {
+  -webkit-animation: rotateDisc2 12s linear infinite;
+  animation: rotateDisc2 12s linear infinite;
+}
+.spinner.sphere .disc:nth-child(3) {
+  -webkit-animation: rotateDisc3 12s linear infinite;
+  animation: rotateDisc3 12s linear infinite;
 }
