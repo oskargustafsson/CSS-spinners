@@ -1,6 +1,16 @@
+Make sure all animations are prefixed correctly
+Firefox: positioning and clock not working
+Add #navigation
+Add meta tags
+
+Ideas:
+
 Moebius strip
 http://i.imgur.com/5NAuCcd.gif
 http://i.imgur.com/UXUYL2S.gif
 Stacked discs, spinning and changing size
-
-Make sure all animations are prefixed correctly
+http://imgur.com/gallery/EfsDl
+http://imgur.com/t/sera_pls
+http://imgur.com/t/sera_pls/vzP35
+http://i.imgur.com/0het78q.jpg
+http://imgur.com/t/sera_pls/KpKVkhH
