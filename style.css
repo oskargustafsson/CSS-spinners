@@ -18,56 +18,6 @@
   to { transform: rotate(360deg); }
 }
 
-/* COLOR WHEEL */
-
-.spinner.colorwheel {
-  position: relative;
-  display: inline-block;
-  width: 4em;
-  height: 4em;
-  overflow: hidden;
-  border-radius: 4em;
-  z-index: 0;
-  font-family: monospace;
-}
-
-.spinner.colorwheel::before,
-.spinner.colorwheel::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.spinner.colorwheel::before {
-  background: linear-gradient(to right, green, yellow);
-  -webkit-animation: rotate 2.5s linear infinite;
-  animation: rotate 2.5s linear infinite;
-}
-
-.spinner.colorwheel::after {
-  background: linear-gradient(to bottom, red, blue);
-  -webkit-animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
-  animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
-}
-
-.spinner .centerpiece {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  border-radius: 100%;
-  box-sizing: border-box;
-  border-left: 0.5em solid transparent;
-  border-right: 0.5em solid transparent;
-  border-bottom: 0.5em solid rgba(255, 255, 255, 0.3);
-  border-top: 0.5em solid rgba(255, 255, 255, 0.3);
-  -webkit-animation: rotate 0.8s linear infinite;
-  animation: rotate 0.8s linear infinite;
-}
-
 
 /* WIND CATCHER */
 
@@ -214,7 +164,7 @@
   bottom: 0;
   width: 1em;
   height: 1em;
-  border-radius: 1em;
+  border-radius: 100%;
   background: radial-gradient(circle at 40% 40%, rgb(79, 77, 77) 39%, rgb(55, 55, 55) 42%);
 }
 
@@ -345,7 +295,7 @@
   height: 100%;
   background: radial-gradient(circle, white, rgb(210, 210, 210));
   border: 0.2em solid #333;
-  border-radius: 4em;
+  border-radius: 100%;
   box-sizing: border-box;
   -webkit-animation: bounce 1.5s infinite;
   animation: bounce 1.5s infinite;
@@ -416,7 +366,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 4em;
+  border-radius: 100%;
   border: 0.3em dotted black;
 }
 
@@ -449,4 +399,54 @@
 .spinner.sphere .disc:nth-child(3) {
   -webkit-animation: rotateDisc3 12s linear infinite;
   animation: rotateDisc3 12s linear infinite;
+}
+
+
+/* COLOR WHEEL */
+
+.spinner.colorwheel {
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  overflow: hidden;
+  border-radius: 100%;
+  z-index: 0;
+}
+
+.spinner.colorwheel::before,
+.spinner.colorwheel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.spinner.colorwheel::before {
+  background: linear-gradient(to right, green, yellow);
+  -webkit-animation: rotate 2.5s linear infinite;
+  animation: rotate 2.5s linear infinite;
+}
+
+.spinner.colorwheel::after {
+  background: linear-gradient(to bottom, red, blue);
+  -webkit-animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
+  animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
+}
+
+.spinner .centerpiece {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 100%;
+  box-sizing: border-box;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid rgba(255, 255, 255, 0.3);
+  border-top: 0.5em solid rgba(255, 255, 255, 0.3);
+  -webkit-animation: rotate 0.8s linear infinite;
+  animation: rotate 0.8s linear infinite;
 }

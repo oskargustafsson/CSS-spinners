@@ -35,7 +35,7 @@
     }
     .button:active {
       background: black;
-      transform: translateY(1%);
+      transform: translateY(2%);
     }
     .left { float: left; }
     .right { float: right; }
@@ -47,6 +47,8 @@
   <script type="text/javascript">
     $(function () {
 
+      // Gallery functionality
+
       function mod(num, n) { return ((num % n) + n) % n; }
 
       function setCurrentSpinner() {
@@ -57,7 +59,7 @@
 
       function setSpinnerInDirection(dir) {
         current = mod(current + dir, $spinners.length);
-        setCurrentSpinner();
+        location.hash = '#' + $spinners.eq(current).attr('id');
       }
 
       var current = 0;
@@ -74,19 +76,29 @@
 
       var $pos = $('<div>').addClass('position').appendTo($controls);
 
-      setCurrentSpinner();
-
       $(document).on('keydown', function (ev) {
         var dir = { 37: -1, 39: 1, }[ev.which];
         dir && setSpinnerInDirection(dir);
       });
 
+      // Hash navigation
+
+      var $win = $(window).on('hashchange', function (ev) {
+        var $el = $spinners.filter(location.hash);
+        if (!$el.length) { return; }
+        current = $spinners.index($el);
+        setCurrentSpinner();
+      });
+
+      location.hash ?
+        $win.trigger('hashchange') :
+        '#' + $spinners.eq(current).attr('id');
     });
   </script>
 </head>
 <body>
   <div class="controls"></div>
-  <div class="spinner windcatcher">
+  <div class="spinner windcatcher" id="windcatcher">
     <div class="blade"></div>
     <div class="blade"></div>
     <div class="blade"></div>
@@ -96,30 +108,30 @@
     <div class="blade"></div>
     <div class="blade"></div>
   </div>
-  <div class="spinner slabs">
+  <div class="spinner slabs" id="slabs">
     <div class="slab"></div>
     <div class="slab"></div>
     <div class="slab"></div>
     <div class="slab"></div>
   </div>
-  <div class="spinner newton">
+  <div class="spinner newton" id="newton">
     <div class="ball"></div><div class="ball"></div><div class="ball"></div><div class="ball"></div><div class="ball"></div>
   </div>
-  <div class="spinner clock">
+  <div class="spinner clock" id="clock">
     <div class="shadow"></div>
     <div class="dial">
       <div class="hour hand"></div>
       <div class="minute hand"></div>
     </div>
   </div>
-  <div class="spinner sphere">
+  <div class="spinner sphere" id="sphere">
     <div class="inner">
       <div class="disc"></div>
       <div class="disc"></div>
       <div class="disc"></div>
     </div>
   </div>
-  <div class="spinner colorwheel">
+  <div class="spinner colorwheel" id="colorwheel">
     <div class="centerpiece"></div>
   </div>
 </body>
