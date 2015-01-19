@@ -1,7 +1,9 @@
 <!doctype <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>CSS spinners</title>
+  <meta name="description" content="A gallery of pure CSS spinners and loading indicators" />
+  <meta name="keywords" content="css spinner loading indicator 3d" />
   <link rel="stylesheet" type="text/css" href="style.css">
   <style type="text/css">
     :focus {outline:none;}
@@ -84,15 +86,17 @@
       // Hash navigation
 
       var $win = $(window).on('hashchange', function (ev) {
-        var $el = $spinners.filter(location.hash);
-        if (!$el.length) { return; }
-        current = $spinners.index($el);
-        setCurrentSpinner();
+        current = $spinners.index($spinners.filter(location.hash));
+        if (current < 0) {
+          location.hash = '#' + $spinners.eq(0).attr('id');
+        } else {
+          setCurrentSpinner();
+        }
       });
 
-      location.hash ?
+      location.hash.substr(1) ?
         $win.trigger('hashchange') :
-        '#' + $spinners.eq(current).attr('id');
+        (location.hash = '#' + $spinners.eq(current).attr('id'));
     });
   </script>
 </head>
