@@ -55,27 +55,17 @@
 
 .spinner .centerpiece {
   position: absolute;
-  top: 0.5em;
-  left: 0.5em;
-  width: 3em;
-  height: 3em;
-  line-height: 3em;
-  text-align: center;
+  width: 100%;
+  height: 100%;
   z-index: 1;
-  color: #333;
-  text-shadow: 0 0.05em 0 white;
-  font-weight: bold;
-  border-radius: 4em;
-  background: rgb(218, 218, 218);
-  cursor: default;
-  box-shadow: 0 -0.1em 0.3em rgba(0, 0, 0, 0.31) inset,
-              0 0.2em 0.3em rgba(255, 255, 255, 1) inset,
-              0 0.1em 0.3em rgba(0, 0, 0, 0.45);
-}
-
-.spinner .centerpiece::after {
-  position: absolute;
-  top
+  border-radius: 100%;
+  box-sizing: border-box;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid rgba(255, 255, 255, 0.3);
+  border-top: 0.5em solid rgba(255, 255, 255, 0.3);
+  -webkit-animation: rotate 0.8s linear infinite;
+  animation: rotate 0.8s linear infinite;
 }
 
 
@@ -185,7 +175,7 @@
   53% { transform: rotate(0deg); }
   100% { transform: rotate(0deg); }
 }
-@keyframes newtonBallLast {
+@-webkit-keyframes newtonBallLast {
   0% { transform: rotate(0deg); }
   50% { transform: rotate(0deg); }
   100% { transform: rotate(-70deg); }
@@ -231,8 +221,8 @@
 .spinner.newton .ball::before {
   content: '';
   position: absolute;
-  width: 1px;
-  margin-left: -1px;
+  width: 0.08em;
+  margin-left: -0.04em;
   top: 0;
   left: 50%;
   bottom: 1em;
@@ -277,35 +267,35 @@
 @-webkit-keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
   }
   40% {
     transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -2em, 0);
   }
   70% {
     transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -1em, 0);
   }
   90% {
-    transform: translate3d(0,-4px,0);
+    transform: translate3d(0, -0.25em, 0);
   }
 }
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
   }
   40% {
     transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -2em, 0);
   }
   70% {
     transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -1em, 0);
   }
   90% {
-    transform: translate3d(0,-4px,0);
+    transform: translate3d(0, -0.25em, 0);
   }
 }
 
@@ -353,7 +343,7 @@
 .spinner.clock .dial {
   width: 100%;
   height: 100%;
-  background: white;
+  background: radial-gradient(circle, white, rgb(210, 210, 210));
   border: 0.2em solid #333;
   border-radius: 4em;
   box-sizing: border-box;
@@ -361,9 +351,7 @@
   animation: bounce 1.5s infinite;
 }
 
-.spinner.clock .dial::before,
-.spinner.clock .dial::after {
-  content: '';
+.spinner.clock .dial .hand {
   position: absolute;
   bottom: 2em;
   width: 0.2em;
@@ -374,13 +362,13 @@
   border-radius: 0 0 0.2em 0.2em;
 }
 
-.spinner.clock .dial::before {
+.spinner.clock .dial .hour.hand {
   height: 1em;
   -webkit-animation: clockHandRotate 12s linear infinite;
   animation: clockHandRotate 12s linear infinite;
 }
 
-.spinner.clock .dial::after {
+.spinner.clock .dial .minute.hand {
   height: 1.5em;
   -webkit-animation: clockHandRotate 1s linear infinite;
   animation: clockHandRotate 1s linear infinite;
