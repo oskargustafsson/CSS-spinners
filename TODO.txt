@@ -1,7 +1,5 @@
-Make sure all animations are prefixed correctly
-Firefox: positioning and clock not working
-Add #navigation
-Add meta tags
+Firefox: clock not working
+
 
 Ideas:
 
