@@ -10,8 +10,8 @@
 }
 
 @-webkit-keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
 }
 @keyframes rotate {
   from { transform: rotate(0deg); }
@@ -22,8 +22,8 @@
 /* WIND CATCHER */
 
 @-webkit-keyframes windcatcherSpin {
-  from { transform: rotateY(0deg) rotateX(-20deg); }
-  to { transform: rotateY(360deg) rotateX(-20deg); }
+  from { -webkit-transform: rotateY(0deg) rotateX(-20deg); }
+  to { -webkit-transform: rotateY(360deg) rotateX(-20deg); }
 }
 @keyframes windcatcherSpin {
   from { transform: rotateY(0deg) rotateX(-20deg); }
@@ -73,10 +73,10 @@
 /* SLABS */
 
 @-webkit-keyframes slabMove {
-  0% { transform: translateY(0) rotateX(30deg); opacity: 0; }
-  10% { transform: translateY(-48%); opacity: 1; }
-  90% { transform: translateY(-422%); opacity: 0.1; }
-  100% { transform: translateY(-480%); opacity: 0; }
+  0% { -webkit-transform: translateY(0) rotateX(30deg); opacity: 0; }
+  10% { -webkit-transform: translateY(-48%); opacity: 1; }
+  90% { -webkit-transform: translateY(-422%); opacity: 0.1; }
+  100% { -webkit-transform: translateY(-480%); opacity: 0; }
 }
 @keyframes slabMove {
   0% { transform: translateY(0) rotateX(30deg); opacity: 0; }
@@ -88,7 +88,9 @@
 .spinner.slabs {
   width: 4em;
   height: 4em;
+  -webkit-transform: perspective(15em) rotateX(65deg) rotateZ(-30deg);
   transform: perspective(15em) rotateX(65deg) rotateZ(-30deg);
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
@@ -99,6 +101,7 @@
   background: gray;
   opacity: 0;
   box-shadow: -0.08em 0.15em 0 rgb(55, 55, 55);
+  -webkit-transform-origin: 50% 0%;
   transform-origin: 50% 0%;
   -webkit-animation: slabMove 4s linear infinite;
   animation: slabMove 4s linear infinite;
@@ -113,22 +116,22 @@
 /* NEWTON'S BALLS */
 
 @-webkit-keyframes newtonBallFirst {
-  0% { transform: rotate(70deg); }
-  50% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
+  0% { -webkit-transform: rotate(70deg); }
+  50% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(0deg); }
 }
 @-webkit-keyframes newtonBallMiddle {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(0deg); }
-  51% { transform: rotate(-0.5deg); }
-  52% { transform: rotate(0.5deg); }
-  53% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
+  0% { -webkit-transform: rotate(0deg); }
+  50% { -webkit-transform: rotate(0deg); }
+  51% { -webkit-transform: rotate(-0.5deg); }
+  52% { -webkit-transform: rotate(0.5deg); }
+  53% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(0deg); }
 }
 @-webkit-keyframes newtonBallLast {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(0deg); }
-  100% { transform: rotate(-70deg); }
+  0% { -webkit-transform: rotate(0deg); }
+  50% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(-70deg); }
 }
 @keyframes newtonBallFirst {
   0% { transform: rotate(70deg); }
@@ -154,6 +157,7 @@
   display: inline-block;
   width: 1em;
   height: 6em;
+  -webkit-transform-origin: 50% 0%;
   transform-origin: 50% 0%;
 }
 
@@ -206,8 +210,8 @@
 /* CLOCK */
 
 @-webkit-keyframes clockHandRotate {
-  from { transform: rotate(0deg) translateY(6%); }
-  to { transform: rotate(360deg) translateY(6%); }
+  from { -webkit-transform: rotate(0deg) translateY(6%); }
+  to { -webkit-transform: rotate(360deg) translateY(6%); }
 }
 @keyframes clockHandRotate {
   from { transform: rotate(0deg) translateY(6%); }
@@ -216,19 +220,19 @@
 
 @-webkit-keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
-    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transform: translate3d(0, 0, 0);
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0, 0, 0);
   }
   40% {
-    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    transform: translate3d(0, -2em, 0);
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -2em, 0);
   }
   70% {
-    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    transform: translate3d(0, -1em, 0);
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -1em, 0);
   }
   90% {
-    transform: translate3d(0, -0.25em, 0);
+    -webkit-transform: translate3d(0, -0.25em, 0);
   }
 }
 @keyframes bounce {
@@ -251,15 +255,15 @@
 
 @-webkit-keyframes clockShadowFade {
   0%, 20%, 50%, 80%, 100% {
-    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
     opacity: 1;
   }
   40% {
-    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
     opacity: 0.2;
   }
   70% {
-    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
     opacity: 0.4;
   }
   90% {
@@ -339,8 +343,8 @@
 /* COLOR SPHERE */
 
 @-webkit-keyframes sphereSpin {
-  0% { transform: rotateX(360deg) rotateY(0deg); }
-  100% { transform: rotateX(0deg) rotateY(360deg); }
+  0% { -webkit-transform: rotateX(360deg) rotateY(0deg); }
+  100% { -webkit-transform: rotateX(0deg) rotateY(360deg); }
 }
 @keyframes sphereSpin {
   0% { transform: rotateX(360deg) rotateY(0deg); }
@@ -371,8 +375,8 @@
 }
 
 @-webkit-keyframes rotateDisc2 {
-  from { transform: rotateX(90deg) rotateZ(0deg); }
-  to { transform: rotateX(90deg) rotateZ(360deg); }
+  from { -webkit-transform: rotateX(90deg) rotateZ(0deg); }
+  to { -webkit-transform: rotateX(90deg) rotateZ(360deg); }
 }
 @keyframes rotateDisc2 {
   from { transform: rotateX(90deg) rotateZ(0deg); }
@@ -380,8 +384,8 @@
 }
 
 @-webkit-keyframes rotateDisc3 {
-  from { transform: rotateY(90deg) rotateZ(0deg); }
-  to { transform: rotateY(90deg) rotateZ(360deg); }
+  from { -webkit-transform: rotateY(90deg) rotateZ(0deg); }
+  to { -webkit-transform: rotateY(90deg) rotateZ(360deg); }
 }
 @keyframes rotateDisc3 {
   from { transform: rotateY(90deg) rotateZ(0deg); }
