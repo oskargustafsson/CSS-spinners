@@ -458,3 +458,67 @@
   -webkit-animation: rotate 0.8s linear infinite;
   animation: rotate 0.8s linear infinite;
 }
+
+
+/* INFINITY */
+
+.spinner.infinity {
+  -webkit-transform: perspective(10em) rotateZ(90deg) rotateY(30deg);
+  transform: perspective(10em) rotateZ(90deg) rotateY(30deg);
+}
+
+.spinner.infinity .half {
+  position: relative;
+  width: 4em;
+  height: 4em;
+}
+
+.spinner.infinity .marker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes rotateHide {
+  0% { -webkit-transform: rotate(0deg); opacity: 0; }
+  25% { opacity: 1; }
+  50%, 100% { -webkit-transform: rotate(360deg); opacity: 0; }
+}
+@keyframes rotateHide {
+  0% { transform: rotate(0deg); opacity: 0; }
+  25% { opacity: 1; }
+  50%, 100% { transform: rotate(360deg); opacity: 0; }
+}
+
+.spinner.infinity .marker::after {
+  opacity: 0;
+  content: '\2022';
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-animation: rotateHide 3.5s cubic-bezier(0.4,0.1,0.6,0.9) infinite;
+  animation: rotateHide 3.5s cubic-bezier(0.4,0.1,0.6,0.9) infinite;
+}
+
+.spinner.infinity .half:first-child {
+  -webkit-transform: translateY(1em) rotateX(180deg);
+  transform: translateY(1em) rotateX(180deg);
+}
+
+.spinner.infinity .half:first-child .marker:nth-child(1)::after { -webkit-animation-delay: 0s; animation-delay: 0s; }
+.spinner.infinity .half:first-child .marker:nth-child(2)::after { -webkit-animation-delay: 0.25s; animation-delay: 0.25s; }
+.spinner.infinity .half:first-child .marker:nth-child(3)::after { -webkit-animation-delay: 0.5s; animation-delay: 0.5s; }
+.spinner.infinity .half:first-child .marker:nth-child(4)::after { -webkit-animation-delay: 0.75s; animation-delay: 0.75s; }
+.spinner.infinity .half:first-child .marker:nth-child(5)::after { -webkit-animation-delay: 1s; animation-delay: 1s; }
+.spinner.infinity .half:first-child .marker:nth-child(6)::after { -webkit-animation-delay: 1.25s; animation-delay: 1.25s; }
+.spinner.infinity .half:first-child .marker:nth-child(7)::after { -webkit-animation-delay: 1.5s; animation-delay: 1.5s; }
+.spinner.infinity .half:first-child .marker:nth-child(8)::after { -webkit-animation-delay: 1.75s; animation-delay: 1.75s; }
+
+.spinner.infinity .half:last-child .marker:nth-child(1)::after { -webkit-animation-delay: 1.75s; animation-delay: 1.75s; }
+.spinner.infinity .half:last-child .marker:nth-child(2)::after { -webkit-animation-delay: 2s; animation-delay: 2s; }
+.spinner.infinity .half:last-child .marker:nth-child(3)::after { -webkit-animation-delay: 2.25s; animation-delay: 2.25s; }
+.spinner.infinity .half:last-child .marker:nth-child(4)::after { -webkit-animation-delay: 2.5s; animation-delay: 2.5s; }
+.spinner.infinity .half:last-child .marker:nth-child(5)::after { -webkit-animation-delay: 2.75s; animation-delay: 2.75s; }
+.spinner.infinity .half:last-child .marker:nth-child(6)::after { -webkit-animation-delay: 3s; animation-delay: 3s; }
+.spinner.infinity .half:last-child .marker:nth-child(7)::after { -webkit-animation-delay: 3.25s; animation-delay: 3.25s; }
+.spinner.infinity .half:last-child .marker:nth-child(8)::after { -webkit-animation-delay: 3.5s; animation-delay: 3.5s; }
